@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
-
+import usersData from "./celebrities.json"
 function App() {
+
+  const [state,setstate] = useState(usersData)
+  useEffect(()=>{
+  })
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        usersData && usersData.map((each)=>(<pre key={each.id}>{JSON.stringify(each)}</pre>))
+      }      
     </div>
   );
 }
