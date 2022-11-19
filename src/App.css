@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+
+.cardBorder{
+  border:solid lightgray 1.8px;
+  border-radius: 20px;
+}
+
+.dispInline{
+  display: inline;
+}
+
+
+.padd{
+  padding: 10px;
+}
+
+.marg{
+  margin: 10px;
+}
+
+.circle{
+  border-radius: 50%;
+}
+
+
+.down{
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: lightgray;
+  transform: rotateZ(270deg)
+}
+
+
+
+.up{
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: lightgray;
+  transform: rotateZ(90deg)
+}

@@ -4,16 +4,22 @@ import { useState } from 'react'
 import CelebItem from './CelebItem'
 
 export default function CelebList() {
-  const [state,setstate] = useState(usersData)
   
+  const [focus, setFocus] = useState([]);
   
+  function handleClick(id){
+    (id===focus)? setFocus(null) : setFocus(id)
+  }
+
   return (
-    <div>
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
     {
-      usersData && usersData.map((each)=>(
+      usersData && usersData.map((person)=>(
       <CelebItem 
-      key={each.id}
-      each={each}
+      key={person.id}
+      person={person}
+      handleClick={()=>handleClick(person.id)}
+      focus={focus}
       />))
     }      
   </div>
