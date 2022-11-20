@@ -1,5 +1,5 @@
 import React from 'react'
-import usersData from "./celebrities.json"
+import usersData from "../celebrities.json"
 import { useState } from 'react'
 import CelebItem from './CelebItem'
 

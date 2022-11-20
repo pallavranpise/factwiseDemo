@@ -1,0 +1,71 @@
+@import 'celeb-item.css';
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+
+
+
+.App {
+  text-align: center;
+}
+
+.dispInline{
+  display: inline;
+}
+
+
+.padd{
+  padding: 10px;
+}
+
+.marg{
+  margin: 10px;
+}
+
+.circle{
+  border-radius: 50%;
+}
+
+
+.down{
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: lightgray;
+  transform: rotateZ(270deg)
+}
+
+
+
+.up{
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: lightgray;
+  transform: rotateZ(90deg)
+}
+
+CelebItem{
+  background-color: #61dafb;
+}
