@@ -3,7 +3,7 @@ import { useState } from "react";
 import CeleItem from "../css/celeb-item.css";
 import DescribeField from "./DescribeField";
 export default function CelebItem(props) {
-  const { person, focus, handleClick } = props;
+  const { person, focus, handleClick, handleDelete } = props;
   const { id, first, last, dob, gender, picture, country, description } =
     person;
   const [edit, setEdit] = useState(false);
@@ -52,7 +52,7 @@ export default function CelebItem(props) {
               <button className="btn edit" onClick={() => setEdit(!edit)}>
                 edit
               </button>
-              <button className="btn delete">delete</button>
+              <button className="btn delete" onClick={()=>handleDelete(id)}>delete</button>
             </div>
           </>
         )}

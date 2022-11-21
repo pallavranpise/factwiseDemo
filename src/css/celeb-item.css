@@ -87,8 +87,15 @@ img.border{
 
 
 
+input{
+    /* border: none; */
+    border-style: none;
+}
 
-
+input.border{
+    border: solid lightgray 1.8px;
+    border-radius: 20px;
+}
 
 
 
@@ -135,3 +142,5 @@ img.border{
     border: lightblue;
     background-color: hsl(0, 0%, 70%);
 }
+
+
