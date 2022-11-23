@@ -1,8 +1,83 @@
-
-
-
 .describeFirst{
     margin:'5px 10px';
 }
 
+.btn {
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: inherit;
+    border-radius: 5px;
+    margin: 10px 10px;
+    padding: 5px 20px;
+    width: 100px;
+    cursor: pointer;
+}
 
+.delete {
+    color: white;
+    background-color: hsl(27, 100%, 50%);
+}
+
+.delete:hover {
+    background-color: hsl(27, 100%, 40%);
+}
+
+.edit:hover {
+    border: lightblue;
+    background-color: hsl(0, 0%, 70%);
+}
+
+
+
+input{
+    /* border: none; */
+    border-style: none;
+}
+
+input.border{
+    border: solid lightgray 1.8px;
+    border-radius: 20px;
+}
+
+
+
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+
+input{
+    border: solid lightgray 1.8px;
+    border-radius: 20px;
+    outline: none;
+}
+
+textarea{
+    border: solid lightgray 1.8px;
+    border-radius: 20px;
+    outline: none;
+    columns: 40px;
+}
+
+
+.itemMiddle {
+    display: flex;
+    flex-direction: column;
+    flex:'1'
+}
+ .mid{
+    margin:10px;
+    display: flex;
+    justify-content: space-around;
+}
+span.mid {
+    width:'200px';
+}
+
+.grayout {
+    color: gray;
+}

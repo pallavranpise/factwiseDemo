@@ -1,50 +1,55 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import usersData from "../celebrities.json"
 import { useState ,useEffect} from 'react'
 import CelebItem from './CelebItem'
+import '../css/celeb-list.css';
 
-const LOCAL_STORAGE_KEY = 'reactceleblist.people'
-
+const LOCAL_STORAGE_KEY = 'reactceleblist.celebs'
+export const CelebContext = React.createContext();
 
 export default function CelebList() {
-  
-  const [focus, setFocus] = useState([])
-  const [celebs,setCelebs] = useState(usersData)
-  
-  function handleClick(id){
-    (id===focus)? setFocus(null) : setFocus(id)
-  }
 
+  const [celebs,setCelebs] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || usersData)
+  const [edit, setEdit] =useState(false)
+console.log(celebs) 
+
+
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(celebs))
+  }, [celebs])
+ 
   function handleDelete(id){
-    if(id===focus)setCelebs(celebs.filter(each=>each.id !==id))
+    setCelebs(celebs.filter(each=>each.id !==id))
   }
 
-  useEffect(() => {
-    const celebJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
-    if ((celebJSON)){
-      setCelebs(JSON.parse(celebJSON))
-    } 
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(usersData))
-  }, [usersData])
+  function handleEdit(id,celeb){
+      const newCelebs = [...celebs]
+      const index = newCelebs.findIndex(c=>c.id===id)
+      newCelebs[index] = celeb
+      // console.log(newCelebs)
+      setCelebs(newCelebs)
+      setEdit(!edit)
+  }
 
 
+  const celebContextValue = {
+    handleDelete,
+    handleEdit
+  }
 
 
   return (
-    <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-    {
-      celebs && celebs.map((person)=>(
-      <CelebItem 
-      key={person.id}
-      person={person}
-      handleClick={()=>handleClick(person.id)}
-      focus={focus}
-      handleDelete={()=>handleDelete(person.id)}
-      />))
-    }      
-  </div>
-  )
+    <CelebContext.Provider value={celebContextValue}>
+      <div className='celebList'>
+        {celebs &&
+          celebs.map((person) => (
+            <CelebItem
+              key={person.id}
+              person={person}
+            />
+          ))}
+      </div>
+    </CelebContext.Provider>
+  );
 }
